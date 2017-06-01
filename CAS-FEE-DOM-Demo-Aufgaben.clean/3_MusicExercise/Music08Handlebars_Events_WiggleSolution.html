@@ -74,7 +74,7 @@
     function findSong(id) {
         let foundSong;
         songs.some(function (song) {
-            if (song.id === id) {
+            if (song.id == id) {
                 foundSong = song;
                 return true;
             }
@@ -84,7 +84,7 @@
     function getSongIndex(id) {
         //could be replaced with use of Array.prototype.some
         for (let i = 0; i < songs.length; i++) {
-            if (songs[i].id === id) {
+            if (songs[i].id == id) {
                 return i;
             }
         }

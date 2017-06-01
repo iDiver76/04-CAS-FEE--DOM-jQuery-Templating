@@ -10,10 +10,17 @@
 
 <script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0/handlebars.min.js"></script>
 <script id="songs-template" type="text/x-handlebars-template">
-
-    //TODO Add Content to Handlebars Template
-    //(loop over songs, for each song li, h3 (with rating, buttons, title), p (with artist)
-
+    {{#each this}}
+    <li>
+        <h3>
+            {{this.rating}}
+            (<button onclick="rateSong({{this.id}}, 1)">+</button>
+            <button onclick="rateSong({{this.id}}, -1)">-</button>)
+            {{this.title}}
+        </h3>
+        <p>{{this.artist}}</p>
+    </li>
+    {{/each}}
 </script>
 <script>
     const songs = [
@@ -30,7 +37,7 @@
     }
     function findSong(id) {
         for (let i = 0; i < songs.length; i++) {
-            if (songs[i].id === id) {
+            if (songs[i].id == id) {
                 return songs[i];
             }
         }
@@ -42,13 +49,12 @@
         renderSongs();
     }
 
-    /*
-    var createSongsHtml = ... TODO compile Handlebars template
-    */
+
+    let source = document.getElementById("songs-template").innerHTML;
+    let createTemplateHtml = Handlebars.compile(source);
+
     function renderSongs () {
-        /*
-        document.getElementById("songs").innerHTML= ... TODO use the createSongsHtml function;
-        */
+        document.getElementById("songs").innerHTML=createTemplateHtml(songs.sort(compareSongs));
     }
     window.onload = renderSongs;
 </script>

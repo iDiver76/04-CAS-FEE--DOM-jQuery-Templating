@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>domLoadedDemo</title>
+    <script>
+        console.log('headScript executing');
+        document.onload = _ => console.log('onload executed'); // does not fire
+        document.onDOMContentLoaded = _ => console.log('onDOMContentLoaded executed'); // does not exist / fire
+        document.addEventListener('DOMContentLoaded', _ => console.log('document DOMContentLoaded executed'));
+        window.onload = _ => console.log('window.onload executed');
+        console.log('headScript ended');
+    </script>
+</head>
+<body>
+<h1>Dom Loaded Demo</h1>
+
+<script>
+    console.log('endScript executing');
+</script>
+</body>
+
+</html>

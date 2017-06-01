@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WED1 JQuery Manipulation Demo</title>
+    <script src="jquery-1.12.4.js"></script>
+</head>
+<body>
+<h1>JQuery DOM Manipulation</h1>
+<p>
+    <span>DOM</span>
+    <span>Manipulation</span>
+    <span>with</span>
+    <span>JQuery</span>
+</p>
+<p>
+    <button>press <span>me</span></button>
+</p>
+<p>
+    <label>enter name<input />
+    </label>
+</p>
+<div id="out"></div>
+<pre>
+$('span').css('font-style', 'italic');
+$('span').css('font-style', 'normal');
+$('button span').css('font-weight', 'bolder');
+$('button span').css('font-weight', 'normal');
+$('p > span:nth-last-child(2)').css('font-style', 'italic');
+$('p > span:nth-last-child(2)').css('font-style', 'normal');
+$('button').prop('disabled', true);
+$(':input').prop('disabled', true);
+$('input').val('hello');
+$('#out').text($('input').val());
+$('#out').append($('<span>kkk</span>'))
+$('#out').append($('input').val());
+</pre>
+</body>
+</html>

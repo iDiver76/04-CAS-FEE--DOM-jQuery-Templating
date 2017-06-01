@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WED1 JQuery Navigation Demo</title>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        jQuery(function($) {
+            console.log(1, $("p"));
+            console.log(2, $("p").parent().prop('tagName'));
+            console.log(3, $("p").prev().prop('tagName'));
+            console.log(4, $("p").next().prop('tagName'));
+            console.log(5, $("p").parent().prop('tagName'));
+            console.log(6, $("p").children().prop('tagName'));
+            console.log(2, $("p > span").eq(2).next());
+        })
+    </script>
+</head>
+<body>
+<h1>JQuery DOM Navigation</h1>
+<p>
+    <span>DOM</span>
+    <span>Navigation</span>
+    <span>with</span>
+    <span>JQuery</span>
+</p>
+</body>
+</html>

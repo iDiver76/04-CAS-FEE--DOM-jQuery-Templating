@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LayeredCount3</title>
+</head>
+<body>
+<h1>Layered Count 3</h1>
+Uses Objects and Observer Pattern
+<p>
+    <button id="upBtn">Count Up</button>
+</p>
+<p>
+    <button id="downBtn">Count Down</button>
+</p>
+
+Current Count:
+<div id="countDiv">0</div>
+
+<script>
+    window.onload = function () {
+
+        // helper
+        class Observable {
+            constructor () {
+                this.observers = [];
+            }
+            addObserver(observer) {
+                this.observers.push(observer);
+            }
+            notifyObservers () {
+                this.observers.forEach(observer=>observer.update())
+            }
+        }
+
+        // core // model
+        class CountModel extends Observable {
+            constructor (countInit) {
+                super();
+                this.count = countInit;
+            }
+            countUp () {
+                this.count++;
+                this.notifyObservers();
+            }
+            countDown () {
+                this.count--;
+                this.notifyObservers();
+            }
+        }
+
+        const countModel = new CountModel(0);
+
+        // UI
+        class CountController {
+            constructor (model, upButton, downButton, countDiv){
+                model.addObserver(this);
+                this.model = model;
+                upButton.onclick = function () {
+                    this.model.countUp();
+                }.bind(this);
+                downButton.onclick = function () {
+                    this.model.countDown();
+                }.bind(this);
+            }
+            renderrUI () {
+                countDiv.innerHTML = this.model.count;
+            }
+            update () {
+                this.renderrUI();
+            }
+        }
+
+        let countControl = new CountController(
+            countModel,
+            document.getElementById('upBtn'),
+            document.getElementById('downBtn'),
+            document.getElementById('countDiv') );
+
+        countControl.renderrUI();
+
+    }
+</script>
+</body>
+</html>

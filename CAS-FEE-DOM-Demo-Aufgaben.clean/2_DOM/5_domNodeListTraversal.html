@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>DOM API Demo</title>
+    <script>
+        const overwritePs = function () {
+            const pNodeList = document.querySelectorAll('p');
+            for (let i=0; i < pNodeList.length; i++) {
+                const pElement = pNodeList[i];
+                pElement.innerHTML='8888';
+            }
+        };
+        const overwriteDivs = function () {
+            const replaceText=theInput.value;
+            for (dElement of [...document.querySelectorAll('div')]) {
+                dElement.innerHTML=replaceText;
+            }
+        };
+        window.onload = function () {
+            setTimeout(overwritePs, 2000);
+            theButton.onclick =overwriteDivs;
+        }
+    </script>
+</head>
+<body>
+<h1>DOM API Demo: Node List Traversal</h1>
+<p>p1</p>
+<p>p2</p>
+<p>p3</p>
+<div>d1</div>
+<div>d2</div>
+<div>d3</div>
+<label>Type the text to replace in Divs
+    <input id="theInput">
+</label>
+<button id="theButton">Overwrite Divs</button>
+</body>
+</html>

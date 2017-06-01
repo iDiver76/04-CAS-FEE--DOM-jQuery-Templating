@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SPA Navigation Demo</title>
+    <script>
+        window.onload = function() {
+            // view template
+            const partials = {
+                home: "this is home",
+                about: "this is about",
+                contact: "this is contact"
+            };
+            // view template access
+            const getCurrentPartial = function() {
+                const hash = location.hash || "#home";
+                return partials[hash.substr(1)];
+            };
+            //navigation controller
+            const content = document.getElementById('content');
+            const navContact = document.getElementById('navContact');
+            navContact.addEventListener('click',
+                function(e) {
+                    e.preventDefault();
+                    history.pushState(null, 'Contact', "#contact");
+                    renderCurrentPartial()
+                });
+            const renderCurrentPartial = function() {
+                content.innerHTML = getCurrentPartial();
+            };
+            window.addEventListener("hashchange", renderCurrentPartial);
+            //init
+            renderCurrentPartial();
+        };
+    </script>
+</head>
+<body>
+<h1>Simple Singlepage Demo</h1>
+<a href="#home">home</a>
+<a href="#about">about</a>
+<a id="navContact" href="">contact</a>
+
+<div id="content"></div>
+
+</body>
+</html>

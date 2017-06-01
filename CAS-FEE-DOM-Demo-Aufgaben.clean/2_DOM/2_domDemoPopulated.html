@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>DOM API Demo</title>
+</head>
+<body>
+<div>
+    <h1>DOM API Demo</h1>
+    <p>This page demos basic DOM features</p>
+    <p>The following DOM interfaces are most important</p>
+    <ul>
+        <li>Document</li>
+        <li>Node</li>
+        <li>Element</li>
+        <li>NodeList</li>
+    </ul>
+    <p>The following global browser variables are most important</p>
+    <ul>
+        <li>document</li>
+        <li>window</li>
+        <li>console</li>
+    </ul>
+    <h2>UI Elements</h2>
+    <label>Input <input id="inpt1"></label>
+    <p>Button <button id="btn1">press me</button></p>
+    <div id="out"></div>
+</div>
+<script>
+//   document.body.firstElementChild.firstElementChild.innerHTML = 'CAS FEE';
+//   document.body.firstElementChild.firstElementChild.innerHTML += ' you rock';
+//   document.body.insertAdjacentHTML('beforeend', '<ul><li>kkkkk</li><li>hhhhhh</li></ul>' );
+//   const h2e = document.querySelector('h2');
+//   h2e.innerHTML = 'newText';
+//   h2e.outerHTML;
+//   h2e.addEventListener('click', h2e.innerHTML += ' ## ');
+//   btn1.addEventListener('click', _ => out.innerHTML += ' # '+inpt1.value);
+
+//    function myClickEventListener () {console.count('click')}
+//
+//    function myClickEventListener2 () {console.count('click2')}
+//
+//    h2e.onclick = myClickEventListener;
+//    h2e.addEventListener('click', myClickEventListener);
+//    h2e.addEventListener('click', myClickEventListener2);
+//
+//    h2e.onclick += myClickEventListener; // does not work
+//    h2e.onclick = myClickEventListener;
+//    h2e.onclick = null;
+//
+//    h2e.removeEventListener('click', myClickEventListener);
+//    h2e.removeEventListener('click', myClickEventListener2);
+//
+//    h2e.onclick = myClickEventListener;
+//    h2e.addEventListener(myClickEventListener);
+//    h2e.addEventListener(myClickEventListener2);
+
+//    h2e.outerHTML = h2e.outerHTML;
+
+    //bubbling
+//    document.body.onclick = e => console.count('bubbled click, target='+e.target.outerHTML);
+
+    //closure
+
+//    function attachCountingClickEventHandler(attachToElement, messageToElement) {
+//        let count = 0;
+//        attachToElement.onclick = function () {
+//            messageToElement.innerHTML += '#'+count++;
+//        };
+//    }
+//    attachCountingClickEventHandler(btn1, out);
+
+
+</script>
+</body>
+</html>

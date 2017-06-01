@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>DOM Events Demo</title>
+    <script>
+        function buttonClickListener (e) {
+            console.log('e.target.id='+e.target.id);
+            console.log('this.id='+this.id);
+            console.log('e.currentTarget.id='+e.currentTarget.id);
+        }
+        window.onload = function () {
+            par1.addEventListener("click", buttonClickListener);
+            button1.addEventListener("click", buttonClickListener);
+        }
+    </script>
+</head>
+<body>
+    <p id="par1">
+        <button id="button1">button1</button>
+    </p>
+</body>
+</html>

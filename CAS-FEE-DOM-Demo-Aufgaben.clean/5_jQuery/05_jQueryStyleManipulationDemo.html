@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WED1 JQuery Style Manipulation Demo</title>
+    <script src="jquery-3.2.1.js"></script>
+    <style>
+        .cool {
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+<h1>JQuery Style Manipulation</h1>
+<p>
+    <span>Style</span>
+    <span>Manipulation</span>
+    <span>with</span>
+    <span>JQuery</span>
+</p>
+<p>
+    <button>press <span>me</span></button>
+</p>
+<p>
+    <label>enter name<input />
+    </label>
+</p>
+<div id="out"></div>
+<script>
+    function animatePs () {
+        const jQPs = $('p');
+        jQPs.slideUp('slow', _=>jQPs.addClass("cool")); //no then
+        jQPs.slideDown('slow');
+    }
+</script>
+<pre>
+    function animatePs () {
+        const jQPs = $('p');
+        jQPs.slideUp('slow', _=>jQPs.addClass("cool")); //no then
+        jQPs.slideDown('slow');
+    }
+    animatePs();
+</pre>
+</body>
+</html>
